@@ -12,3 +12,4 @@ serde_json = "1.0.117"
 dotenvy = "0.15.7"
 validator = { version = "0.18.1", features = ["derive"] }
 diesel = { version = "2.2.0", features = ["postgres"] }
+jsonwebtoken = "9.3.0"
