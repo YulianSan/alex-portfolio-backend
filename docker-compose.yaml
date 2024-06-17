@@ -2,7 +2,7 @@ services:
   app:
     container_name: aguia-app
     build: .
-    user: "1000"    
+    user: "sandev"    
     depends_on:
       db:
         condition: service_healthy
