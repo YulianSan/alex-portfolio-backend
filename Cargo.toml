@@ -3,6 +3,14 @@ name = "aguia-vitrais-back"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name ="aguia-vitrais-back" 
+path = "src/main.rs"
+
+[lib]
+name = "aguia_vitrais_back"
+path = "src/lib.rs"
+
 [dependencies]
 axum = "0.7.5"
 tokio = { version = "1.38.0", features = ["full"] }
@@ -13,3 +21,5 @@ dotenvy = "0.15.7"
 validator = { version = "0.18.1", features = ["derive"] }
 diesel = { version = "2.2.0", features = ["postgres"] }
 jsonwebtoken = "9.3.0"
+chrono = "0.4.38"
+async-trait = "0.1.80"
