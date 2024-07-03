@@ -1,7 +1,7 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
-    refresh_tokens (id) {
+    tokens (id) {
         id -> Int4,
         #[max_length = 255]
         token -> Varchar,
@@ -24,9 +24,9 @@ diesel::table! {
     }
 }
 
-diesel::joinable!(refresh_tokens -> users (user_id));
+diesel::joinable!(tokens -> users (user_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
-    refresh_tokens,
+    tokens,
     users,
 );

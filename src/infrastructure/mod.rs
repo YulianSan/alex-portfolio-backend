@@ -2,11 +2,14 @@ use std::sync::Arc;
 
 use axum::{http::StatusCode, routing::get, Router};
 use tokio::net::TcpListener;
-use crate::adapters::{controllers, repositories::refresh_token_repository::RefreshTokenRepository, shared::app_state::AppState};
+
+use crate::adapters::{controllers, repositories::token_repository::TokenRepository, shared::app_state::AppState};
+mod database;
 
 pub async fn server(listener: TcpListener, db_name: &str) -> Result<(), std::io::Error> {
     let data = AppState {
-        refresh_token_repository: Arc::new(RefreshTokenRepository {})
+        token_repository: Arc::new(TokenRepository {}),
+        db_pool: database::get_connection_pool()
     }; 
 
     let app = Router::new().nest("/", controllers::routes()).with_state(data);
